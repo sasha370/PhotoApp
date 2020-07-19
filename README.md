@@ -1,24 +1,32 @@
-# README
+Для установки Twitter bootstrap
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1) gem 'bootstrap'
+   gem 'devise-bootstrap-views'
+   gem 'jquery-rails'
+   gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git' 
+   
+   вместо Twittera можно использовать Gem:
+    https://github.com/hisea/devise-bootstrap-views
+   
+   
+2) yarn add bootstrap jquery popper.js
+3)Make the config/webpack/environment.js file look like below:
+    Make the config/webpack/environment.js file look like below (you are adding the lines which are highlighted in green below):
+   
+    **const { environment } = require('@rails/webpacker')
+    const webpack = require("webpack")
+    environment.plugins.append("Provide", new webpack.ProvidePlugin({
+    $: 'jquery',
+    jQuery: 'jquery',
+    Popper: ['popper.js', 'default']
+    }))**
+    
+    module.exports = environment
+    
+4) app/javascript/packs/application.js and add the following line to the bottom:
+      **import "bootstrap"**
+      
+5) НЕ ДЕЛАТЬ *= require bootstrap  в app/assets/stylesheets/application.css
+6) rails generate bootstrap:install static
+7) rails g bootstrap:layout application
+8) Перенести файлы из app/assets/javascript в папку app/javascripts и переписать начинку application.js
