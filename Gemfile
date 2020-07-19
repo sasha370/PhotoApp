@@ -11,6 +11,7 @@ gem 'bootstrap'
 gem 'devise-bootstrap-views'
 gem 'jquery-rails'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+gem 'font-awesome-sass'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
