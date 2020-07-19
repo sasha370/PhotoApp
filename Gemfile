@@ -13,6 +13,9 @@ gem 'jquery-rails'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'font-awesome-sass'
 gem 'sendgrid-ruby'
+gem 'stripe'
+
+
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
