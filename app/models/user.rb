@@ -6,4 +6,5 @@ class User < ApplicationRecord
   has_one :payment
   # Разделяет несколько атрибутов с моделью Payment
   accepts_nested_attributes_for :payment
+  has_many :images
 end
