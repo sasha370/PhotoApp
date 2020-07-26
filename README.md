@@ -1,32 +1,24 @@
-Для установки Twitter bootstrap
+Приложение для создания своего фотоальбома с платной подпиской.
 
-1) gem 'bootstrap'
-   gem 'devise-bootstrap-views'
-   gem 'jquery-rails'
-   gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git' 
-   
-   вместо Twittera можно использовать Gem:
-    https://github.com/hisea/devise-bootstrap-views
-   
-   
-2) yarn add bootstrap jquery popper.js
-3)Make the config/webpack/environment.js file look like below:
-    Make the config/webpack/environment.js file look like below (you are adding the lines which are highlighted in green below):
-   
-    **const { environment } = require('@rails/webpacker')
-    const webpack = require("webpack")
-    environment.plugins.append("Provide", new webpack.ProvidePlugin({
-    $: 'jquery',
-    jQuery: 'jquery',
-    Popper: ['popper.js', 'default']
-    }))**
-    
-    module.exports = environment
-    
-4) app/javascript/packs/application.js and add the following line to the bottom:
-      **import "bootstrap"**
-      
-5) НЕ ДЕЛАТЬ *= require bootstrap  в app/assets/stylesheets/application.css
-6) rails generate bootstrap:install static
-7) rails g bootstrap:layout application
-8) Перенести файлы из app/assets/javascript в папку app/javascripts и переписать начинку application.js
+После оплаты регистрации кредиткой, клиент получает возможность загружать свои фотографии.
+
+Тест:
+1) выбрать Premium Plan  при регистрации
+2) Указать действующий email, на который придет подтверждение регистрации
+3) В качетсве Кредитки указать любой из номеров 4242424242424242
+                                                4000056655665556
+                                                5555555555554444
+                                                cvv- любые три цифры
+                                                дата - любая больше текущей
+4) В верхнем меню выбрать "Мой Альбом" и загрузить любое изображение
+
+
+В приложении использованно:
+1) Twitter Bootstrap  
+2) Devise + DeviseBootstrap
+3) SendGrid для отправки почты
+4) MiniMagick + Fog AWS + Rmagick для хранения картинок на Amazon S3 
+5) Деплой на Heroku https://photo-stock-app.herokuapp.com/
+6) Исходники на https://github.com/sasha370/PhotoApp 
+
+ 
